@@ -10,10 +10,11 @@
 body{
   width: 100vw;
   height: 100vh;
+  
 }
 
 .navBar{
-  width: 100%;
+  max-width: 100%;
   background-color: #F8F3D9;
   
 }
@@ -47,6 +48,7 @@ body{
   height: 80vh;
   overflow: hidden;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .banner img{
@@ -81,4 +83,27 @@ body{
   margin-top: -15px;
   filter: drop-shadow(4px 3px 1px #00000045);
   font-family: "Montserrat", serif;
+}
+
+.feature{
+  display: flex;
+  justify-content: center;
+}
+
+.img-cover{
+  height: 48%;
+  overflow: hidden;
+}
+
+.card{
+  margin-right: 30px;
+  margin-bottom: 50px;
+}
+
+.card-text{
+  height: 50px;
+}
+
+.card-body {
+  height: 70px;
 }
