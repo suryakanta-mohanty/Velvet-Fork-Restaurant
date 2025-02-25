@@ -15,7 +15,7 @@ body{
 
 .navBar{
   max-width: 100%;
-  background-color: #F8F3D9;
+  /* background-color: #F8F3D9; */
   
 }
 
@@ -28,9 +28,28 @@ body{
 }
 
 .location, .profile{
-  background-color: aqua;
   padding: 5px 10px;
+  border-radius: 4px;
   cursor: pointer;
+  transition: 0.15s ease-in;
+}
+.location i:first-child, .location small{
+  margin-right: 5px;
+  
+}
+
+.location i, .location small{
+  color: #E50046;
+}
+
+
+.location small{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.location:hover, .profile:hover{
+  background-color: rgb(197 197 197 / 48%);
 }
 
 .profile{
@@ -100,10 +119,51 @@ body{
   margin-bottom: 50px;
 }
 
-.card-text{
-  height: 50px;
+.card {
+  width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
 }
 
-.card-body {
-  height: 70px;
+.card-img{
+  overflow: hidden;
+  height: 200px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card-content {
+  padding: 20px;
+  font-family: "Montserrat", serif;
+}
+.card-content h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.card-content p {
+  font-size: 16px;
+  color: #666;
+  /* margin-bottom: 15px; */
+  height: 30px;
+}
+.card button {
+  text-decoration: none;
+  background-color: #E50046;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  
+}
+.card button:hover {
+  background-color: #f9044e;
 }
