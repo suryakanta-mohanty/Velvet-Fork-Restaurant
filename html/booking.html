@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+ 
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #4B2840;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .booking-container {
+            background: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 10px;
+            border-color: black;
+            border-width: 3px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .booking-container h2 {
+            text-align: center;
+            width: 100%;
+            color: #8B4513;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            width: 48%;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            transition: all 0.3s ease-in-out;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #8B4513;
+            outline: none;
+            box-shadow: 0 0 5px rgba(139, 69, 19, 0.5);
+        }
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+        textarea[maxlength]::after {
+            content: attr(maxlength);
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            color: grey;
+        }
+        .full-width {
+            width: 100%;
+        }
+        .submit-btn {
+            background: #A93226;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #922B21;
+        }
+        /* From Uiverse.io by adeladel522 */ 
+.button {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color:rgb(181 0 84);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffff;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid #ffffff4d;
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
+  margin: auto;
+  width: 30%;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  border-color: #fff9;
+}
+
+.button:hover .icon {
+  transform: translate(4px);
+}
+
+.button:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+
+  60% {
+    left: 100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <h2>Booking</h2>
+        <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="identity">Identity Type *</label>
+            <select id="identity" required>
+                <option value="">Select</option>
+                <option>Aadhar</option>
+                <option>PAN</option>
+                <option>Driving License</option>
+                <option>Passport</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="location">Location *</label>
+            <select id="location" required>
+                <option value="">Select</option>
+                <option>Mumbai</option>
+                <option>Delhi</option>
+                <option>Kolkata</option>
+                <option>Cuttack</option>
+                <option>Bhubaneswar</option>
+                <option>Bangalore</option>
+                <option>Chennai</option>
+                <option>Ayodhya</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Date *</label>
+            <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+            <label for="from-time">From Time *</label>
+            <input type="time" id="from-time" required>
+        </div>
+        <div class="form-group">
+            <label for="to-time">To Time *</label>
+            <input type="time" id="to-time" required>
+        </div>
+        <div class="form-group">
+            <label for="occasion">Occasion *</label>
+            <select id="occasion" required>
+                <option value="">Select</option>
+                <option>Birthday</option>
+                <option>Corporate Meeting</option>
+                <option>Cultural Program</option>
+                <option>Marriage</option>
+                <option>Reception</option>
+                <option>Business Event</option>
+                <option>Seminar</option>
+                <option>Exhibition</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="hall">Hall Name *</label>
+            <select id="hall" required>
+                <option value="">Select</option>
+                <option>Galleria 1</option>
+                <option>Galleria 2</option>
+                <option>Galleria 3</option>
+                <option>Galleria 4</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="guests">Number of People *</label>
+            <input type="number" id="guests" min="1" required>
+        </div>
+        <div class="form-group">
+            <label>Need a Photo & Video Shooting Group? *</label>
+            <select id="photo-video" onchange="toggleDescription()">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div class="form-group full-width" id="description-group" style="display: none;">
+            <label for="description">Description</label>
+            <textarea id="description" maxlength="300" placeholder="Describe your requirements (max 300 words)"></textarea>
+        </div>
+        <div class="form-group full-width">
+            <label for="special-request">Any Special Request</label>
+            <textarea id="special-request" maxlength="300" placeholder="Any additional request (optional)"></textarea>
+        </div>
+ <!-- BOOK NOW BUTTON-From Uiverse.io by adeladel522 --> 
+  <button class="button">
+    Book Now
+    <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+      <path
+        clip-rule="evenodd"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+      <!--removed a div here@-->
+
+    <script>
+        function toggleDescription() {
+            let descGroup = document.getElementById('description-group');
+            let selection = document.getElementById('photo-video').value;
+            descGroup.style.display = (selection === 'yes') ? 'block' : 'none';
+        }
+    </script>
+
+
+    <!--phone number validation-->
+    <script>
+    document.getElementById("phone").addEventListener("input", function () {
+    let phoneInput = this.value.replace(/\D/g, ""); // Remove non-numeric characters
+    if (phoneInput.length > 10) {
+        phoneInput = phoneInput.slice(0, 10); // Limit to 10 digits
+    }
+    this.value = phoneInput;
+    });
+
+    document.querySelector("form").addEventListener("submit", function (event) {
+    let phoneInput = document.getElementById("phone").value;
+     if (phoneInput.length !== 10) {
+        alert("Phone number must be exactly 10 digits.");
+        event.preventDefault(); // Prevent form submission
+     }
+     });
+    </script> 
+    <script>
+     const phoneInputField = document.querySelector("#phone");
+     const phoneInput = window.intlTelInput(phoneInputField, {
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    </script>
+
+ <!--EMAIL VALIDATION-->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".submit-btn").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate a random 6-digit OTP
+            let otp = Math.floor(100000 + Math.random() * 900000);
+
+            // Get the email entered in the booking form
+            let email = document.getElementById("email").value;
+
+            if (email.trim() === "") {
+                alert("Please enter a valid email before booking.");
+                return;
+            }
+
+            // Store OTP & email in session storage
+            sessionStorage.setItem("otp", otp);
+            sessionStorage.setItem("email", email);
+
+            console.log("Generated OTP:", otp); // Debugging (remove this in production)
+
+            // Redirect to confirmation page
+            window.location.href = "confirmation.html";
+        });
+    });
+    </script>
+ <!-- REDIRECT TO Mmailvarrification page-->
+ <script>
+    document.querySelector(".button").addEventListener("click", function () {
+      // Select all required input fields
+      let requiredFields = document.querySelectorAll("input[required], select[required]");
+      let allFilled = true;
+  
+      // Loop through fields to check if any are empty
+      requiredFields.forEach(function (field) {
+        if (!field.value.trim()) {
+          allFilled = false;
+        }
+      });
+  
+      // If all fields are filled, redirect; otherwise, show an alert
+      if (allFilled) {
+        window.location.href = "mailvarrification.html";
+      } else {
+        alert("All mandatory fields should be filled!");
+      }
+    });
+  </script>
+  
+			
+
+
+</body>
+</html>

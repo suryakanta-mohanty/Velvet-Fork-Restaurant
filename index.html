@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velvet Fork Restaurant</title>
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navBar">
+      <nav>
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i>
+          <small>Cuttack</small>
+          <i class="fa-solid fa-caret-down"></i>
+        </div>
+
+        <div class="profile" onclick="toggleDropdown()">
+          <i class="fa-solid fa-user"></i>
+          <div class="dropdown" id="profileDropdown">
+            <a href="#" onclick="openModal('loginModal')">Login / Sign Up</a>
+            <!-- <a href="#" onclick="openModal('signupModal')">Sign Up</a> -->
+          </div>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="banner">
+      <img src="./image/header image.jpg" alt="food image">
+      <div class="banner-text">
+        <p class="brand-name">Velvet Fork</p>
+        <p class="brand-dis">Elegance meets flavor, Every bite is a taste of royalty.</p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="card">
+        <div class="card-img">
+          <img src="./image/card image.jpg" alt="Card Image">
+        </div>
+        <div class="card-content">
+            <h3>Order Online</h3>
+            <p>Stay home and order to your doorstep</p>
+            <button><span>Details</span></button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-img">
+          <img src="./image/dining.jpg" alt="Card Image">
+        </div>
+        <div class="card-content">
+            <h3>Dining</h3>
+            <p>Reserve Dining before time</p>
+            <button><span>Details</span></button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-img">
+          <img src="./image/jacek-dylag-P1djASp78Ss-unsplash.jpg" alt="Card Image">
+        </div>
+        <div class="card-content">
+            <h3>Events</h3>
+            <p>Reserve Dining before time</p>
+            <button><span>Details</span></button>
+        </div>
+      </div>
+    </div>
+
+    <section class="food-display">
+      <div class="section-title">
+        <h3>What are you carving for?</h3>
+      </div>
+
+      <div class="food">
+        <ol class="food-list">
+          <li>
+            <div class="food-image">
+              <img src="./image/8dc39742916ddc369ebeb91928391b931632716660.jpg" alt="">
+            </div>
+
+            <div class="food-name">
+              <span>Dosa</span>
+            </div>
+          </li>
+          <li>
+            <div class="food-image">
+              <img src="./image/8dc39742916ddc369ebeb91928391b931632716660.jpg" alt="">
+            </div>
+
+            <div class="food-name">
+              <span>Dosa</span>
+            </div>
+          </li>
+          <li>
+            <div class="food-image">
+              <img src="./image/8dc39742916ddc369ebeb91928391b931632716660.jpg" alt="">
+            </div>
+
+            <div class="food-name">
+              <span>Dosa</span>
+            </div>
+          </li>
+          <li>
+            <div class="food-image">
+              <img src="./image/8dc39742916ddc369ebeb91928391b931632716660.jpg" alt="">
+            </div>
+
+            <div class="food-name">
+              <span>Dosa</span>
+            </div>
+          </li>
+          <li>
+            <div class="food-image">
+              <img src="./image/8dc39742916ddc369ebeb91928391b931632716660.jpg" alt="">
+            </div>
+
+            <div class="food-name">
+              <span>Dosa</span>
+            </div>
+          </li>
+          <li>
+            <div class="food-image">
+              <img src="./image/8dc39742916ddc369ebeb91928391b931632716660.jpg" alt="">
+            </div>
+
+            <div class="food-name">
+              <span>Dosa</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </section>
+
+    <div class="horizontal-banner">
+      <div class="banner-title">
+        <h3>What's New</h3>
+      </div>
+
+      <section class="carousel">
+        <div class="carousel_viewport">    <!-- Scroll -->
+          <ol class="carousel_track">
+            <li class="carousel_slide">
+              <div class="horz-img">
+                <img src="./image/Dominos-Cheesiken---Pepsi@30_v2_AC_2024_11_07_10_42_59.jpg" alt="">
+              </div>
+            </li>
+            <li class="carousel_slide">
+              <div class="horz-img">
+                <img src="./image/Dominos-Cheesiken---Pepsi@30_v2_AC_2024_11_07_10_42_59.jpg" alt="">
+              </div>
+            </li>
+            <li class="carousel_slide">
+              <div class="horz-img">
+                <img src="./image/Dominos-Cheesiken---Pepsi@30_v2_AC_2024_11_07_10_42_59.jpg" alt="">
+              </div>
+            </li>
+            <li class="carousel_slide">
+              <div class="horz-img">
+                <img src="./image/Dominos-Cheesiken---Pepsi@30_v2_AC_2024_11_07_10_42_59.jpg" alt="">
+              </div>
+            </li>
+            <li class="carousel_slide">
+              <div class="horz-img">
+                <img src="./image/Dominos-Cheesiken---Pepsi@30_v2_AC_2024_11_07_10_42_59.jpg" alt="">
+              </div>
+            </li>
+            <li class="carousel_slide">
+              <div class="horz-img">
+                <img src="./image/Dominos-Cheesiken---Pepsi@30_v2_AC_2024_11_07_10_42_59.jpg" alt="">
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <section class="online-order">
+      <div class="online-container">
+        <div class="online-img">
+          
+        </div>
+
+        <div class="online-des">
+          <h3>Order Online</h3>
+          <p>Craving Deliciousness? Get Your Favorite Meals Delivered Fresh & Fast!</p>
+          <p>Treat yourself to a feel-good meal today!</p>
+
+          <button >
+            <span>Order Now</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="branding">
+        <a href="./index.html">Velvet Fork</a>
+        <div class="country">
+          <img src="./image/flag.png" width="20px" loading="lazy" alt="">
+          <span>India</span>
+        </div>
+      </div>
+      <div class="last-line">
+        <div>
+          <a href="#">Terms of Service</a>
+          <a href="#">Privecy Policy</a>
+        </div>
+        <p>&copy; velvetfork, inc.</p>
+      </div>
+    </footer>
+
+    
+  </div>
+  <script src="https://kit.fontawesome.com/c188e66d94.js" crossorigin="anonymous"></script>
+  <script src="/script/script.js"></script>
+
+</body>
+</html>
