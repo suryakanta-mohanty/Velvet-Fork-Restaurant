@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Management</title>
+    <link rel="stylesheet" href="menu-style.css">
+    
+</head>
+<body>
+    <div id="menu" class="content active">
+        <h2 style="text-align: center;">Menu Management</h2>
+        <div class="menu-container">
+            <div class="menu-list">
+                <h3>Existing Items</h3>
+                <div class="menu-grid" id="menuGrid"></div>
+            </div>
+            <div class="menu-form">
+                <h3>Add New Item</h3>
+                <input type="file" id="itemImage" accept="image/*">
+                <input type="text" id="itemName" placeholder="Name">
+                <input type="text" id="itemPrice" placeholder="Price">
+                <textarea id="itemDescription" placeholder="Description"></textarea>
+                <button id="addItem">Add</button>
+            </div>
+        </div>
+    </div>
+    <script src="scriptm.js"></script>
+</body>
+</html>
