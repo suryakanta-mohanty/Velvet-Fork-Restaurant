@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav">
+        <div>Admin Page</div>
+        <div class="tab" data-target="menu">Menus <span>&#9998;</span></div>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active" data-target="orders">Orders</div>
+        <div class="tab" data-target="reservations">Reservations</div>
+    </div>
+    
+    <div id="orders" class="content active">
+        <h2>Orders</h2>
+        <div class="order-details">
+            <p><strong>Order ID:</strong> 12345</p>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Items:</strong></p>
+            <ul>
+                <li>Item 1 - $10</li>
+                <li>Item 2 - $15</li>
+                <li>Item 3 - $20</li>
+            </ul>
+            <p><strong>Total:</strong> $45</p>
+            <p><button onclick="updateStatus()">Out for Delivery</button></p>
+        </div>
+    </div>
+    
+    <div id="reservations" class="content">
+        <h2>Reservations</h2>
+        <p>No reservations yet.</p>
+    </div>
+
+    <!-- Menu Section (Loaded from an External File) -->
+    <div id="menu" class="content">
+        <iframe src="menu.html" style="width:100%; height:600px; border:none;"></iframe>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+                document.getElementById(this.dataset.target).classList.add('active');
+            });
+        });
+        
+        function updateStatus() {
+            alert("Order marked as out for delivery!");
+        }
+    </script>
+</body>
+</html>
+
