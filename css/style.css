@@ -420,10 +420,10 @@ button {
 
  .online-order {
   display: flex;
-  height: 80vh;
+  height: 70vh;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px;
+  
 }
 .online-container {
   display: flex;
@@ -438,6 +438,13 @@ button {
   width: 50%;
   background: url('../image/online.png') center/contain no-repeat;
 }
+
+.dining-img{
+  width: 50%;
+  background: url('../image/Reservation\ Dining.jpg') center/cover no-repeat;
+  filter: brightness(1.2);
+}
+
 .online-des {
   width: 50%;
   background: #312e2e;
