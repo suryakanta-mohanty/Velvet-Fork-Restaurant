@@ -8,25 +8,29 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="navBar">
-      <nav>
-        <div class="location">
-          <i class="fa-solid fa-location-dot"></i>
-          <small>Cuttack</small>
-          <i class="fa-solid fa-caret-down"></i>
-        </div>
 
-        <div class="profile" onclick="toggleDropdown()">
-          <i class="fa-solid fa-user"></i>
-          <div class="dropdown" id="profileDropdown">
-            <a href="#" onclick="openModal('loginModal')">Admin Login</a>
-            <!-- <a href="#" onclick="openModal('signupModal')">Sign Up</a> -->
-          </div>
-        </div>
-      </nav>
-    </div>
-    
+  <header>
+    <nav>
+      <div class="leftNav">
+        <select name="location" id="location">
+          <option value="volvo">location</option>
+          <hr>
+          <option value="saab" selected>Cuttack</option>
+          <option value="mercedes">Delhi</option>
+          <option value="audi">Mumbai</option>
+        </select>
+        
+      </div>
+      <div class="rightNav">
+        <a href="/index.html">Home</a>
+        <a href="">Contacts</a>
+        <a href="">Login</a>
+      </div>
+        
+    </nav>
+  </header>
+  
+  <div class="container">
     <div class="banner">
       <img src="./image/header image.jpg" alt="food image">
       <div class="banner-text">
@@ -43,7 +47,7 @@
         <div class="card-content">
             <h3>Order Online</h3>
             <p>Stay home and order to your doorstep</p>
-            <button><span>Order</span></button>
+            <button onclick="location.href='./html/booking.html'"><span>Order</span></button>
         </div>
       </div>
       

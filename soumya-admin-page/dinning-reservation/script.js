@@ -9,5 +9,5 @@ document.querySelectorAll('.table-option, .party-hall-option').forEach(option =>
     });
 });
     function openBookingPage(tableType) {
-        window.location.href = `/booking/boking.html?table=${encodeURIComponent(tableType)}`;
+        window.location.href = `./booking/boking.html?table=${encodeURIComponent(tableType)}`;
     }
