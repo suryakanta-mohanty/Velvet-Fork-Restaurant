@@ -37,16 +37,16 @@ a{
 }
 
 .container .filter_btns button:first-child{
-  background: #77B254;
+  background: #E50046;
   color: white;
 }
 
-.lunch{
+.foods{
   width: 100%;
   margin-top: 50px;
 }
 
-.lunch .headline .headline-info{
+.foods .headline .headline-info{
   display: flex;
   align-items: center;
   font-family: var(--primary-ft);
@@ -54,17 +54,17 @@ a{
   margin-bottom: 20px;
 }
 
-.lunch .headline .headline-info .headline-text span{
+.foods .headline .headline-info .headline-text span{
   font-size: 1.6rem;
   font-weight: var(--ft-wgt);
   color: #33372C;
 }
 
-.lunch .headline .headline-info .headline-text p{
+.foods .headline .headline-info .headline-text p{
   color: rgb(88, 87, 87);
 }
 
-.food-cards{
+.food-items{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -72,7 +72,7 @@ a{
   
 }
 
-.card{
+.food-card{
   position: relative;
   width: 300px;
   height: 300px;
@@ -80,7 +80,7 @@ a{
   overflow: hidden;
 }
 
-.card .card-img img{
+.food-card .food-card-img img{
   width: 100%;
   object-fit: cover;
 }
@@ -96,7 +96,7 @@ a{
   background: linear-gradient(1deg, #000000, #3b3a3a);
 }
 
-.card .card-info{
+.food-card .food-card-info{
   position: absolute;
   /* padding: 0 20px 15px; */
   left: 0;
@@ -105,19 +105,19 @@ a{
   font-family: var(--primary-ft);
 }
 
-.card-title h2{
+.food-card-title h2{
   font-size: 1.2rem;
   font-weight: 500;
   padding: 0 20px 0;
 }
 
-.card-title h2 img{
+.food-card-title h2 img{
   width: 14px;
   margin-right: 5px;
   filter: brightness(1.5px);
 }
 
-.card-title h3{
+.food-card-title h3{
   font-size: 0.7rem;
   font-weight: 400;
   padding: 0 20px 0;
