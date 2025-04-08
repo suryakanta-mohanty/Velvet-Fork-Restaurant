@@ -51,3 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', ()=>{
+  const addButtons = document.querySelectorAll('.food-card Button')
+  
+  addButtons.forEach(button =>{
+    button.addEventListener('click', ()=>{
+      const card = button.closest('.food-card');
+      const name = card.querySelector('.food-card-title h2').innerText;
+      const price = card.querySelector('.pricing p').innerText;
+      const foodImage = card.querySelector('.food-card-img img').getAttribute('src');
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      cart.push({name, price, foodImage});
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(`${name} added to Cart!`);
+    });
+  });
+});
