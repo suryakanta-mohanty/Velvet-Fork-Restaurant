@@ -1,0 +1,106 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .cart-container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .cart-item button {
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
+    .total {
+      text-align: right;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      .cart-item {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <h1>Your Cart</h1>
+    <div id="cart-items"></div>
+    <div class="total" id="total-price"></div>
+    <button onclick="clearCart()">Clear Cart</button>
+  </div>
+
+  <script >
+    function renderCart() {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      console.log(cartItems);
+      const cartContainer = document.getElementById('cart-items');
+      const totalPriceEl = document.getElementById('total-price');
+      cartContainer.innerHTML = '';
+      let total = 0;
+
+      cartItems.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <div>
+            <img src='${item.foodImage}' width= 100px>
+            <strong>${item.name}</strong><br>
+            ₹${item.price} x ${item.quantity} = ₹${itemTotal}
+          </div>
+          <div>
+            <button onclick="updateQuantity(${index}, -1)">-</button>
+            <button onclick="updateQuantity(${index}, 1)">+</button>
+            <button onclick="removeItem(${index})">Remove</button>
+          </div>
+        `;
+        cartContainer.appendChild(itemDiv);
+      });
+
+      totalPriceEl.textContent = `Total: ₹${total.toFixed(2)}`;
+    }
+
+    function updateQuantity(index, delta) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function clearCart() {
+      localStorage.removeItem('cart');
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

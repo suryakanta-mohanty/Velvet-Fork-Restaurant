@@ -60,10 +60,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
       const name = card.querySelector('.food-card-title h2').innerText;
       const price = card.querySelector('.pricing p').innerText;
       const foodImage = card.querySelector('.food-card-img img').getAttribute('src');
+      const quantity = 1;
 
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-      cart.push({name, price, foodImage});
+      cart.push({name, price, foodImage, quantity});
 
       localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -71,3 +72,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 });
+
