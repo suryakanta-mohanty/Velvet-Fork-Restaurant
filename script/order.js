@@ -69,7 +69,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
       localStorage.setItem('cart', JSON.stringify(cart));
 
       alert(`${name} added to Cart!`);
+      let cartLen = cart.length;
+      cartBar(cartLen);
+      window.location.reload();
     });
   });
 });
 
+function cartBar(cartLen, cartQuantity){
+  console.log(cartQuantity);
+  if (cartLen === 0){
+    document.querySelector('.cart-bar').style.display = 'none';
+
+  }
+}
+
+function cartInfo(){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cartLen = cart.length;
+
+  cartBar(cartLen);
+}
+
+cartInfo();

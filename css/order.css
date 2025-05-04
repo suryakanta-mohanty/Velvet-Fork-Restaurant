@@ -168,3 +168,35 @@ a{
 .pricing button span{
   font-size: 1.04rem;
 }
+
+.cart-bar{
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EEEEEE;
+  border-radius: 40px;
+  color: #650c0c;
+  position: fixed;
+  width: 50%;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  font-family: var(--primary-ft);
+  font-weight: var(--ft-wgt);
+  border: 1px solid #650c0c;
+  box-shadow: 2px 3px 12px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  
+}
+
+.item-price{
+  display: flex;
+  gap: 30px;
+}
+
+.view-cart a{
+  color: #650c0c;
+  font-weight: var(--ft-wgt); 
+  margin-left: 10px;
+}

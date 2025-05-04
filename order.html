@@ -8,7 +8,21 @@
   <!-- <link rel="stylesheet" href="../css/style.css"> -->
 </head>
 <body>
+  
   <div class="container">
+
+    <section class="cart-bar" onclick="location.href='./cart.html'">
+      <div class="item-price">
+        <p class="cart-items"></p>
+        <p>Check it out !</p>
+      </div>
+      <div class="view-cart">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+        <a href="cart.html">View Cart <i class="fa-solid fa-greater-than"></i></a>
+      </div>
+    </section>
+
     <div class="filter_btns">
       <button type="button">Show All</button>
       <button type="button">Veg</button>
@@ -333,6 +347,6 @@
   
 
   <script src="https://kit.fontawesome.com/c188e66d94.js" crossorigin="anonymous"></script>
-  <script type="module" src="../script/order.js"></script>
+  <script src="../script/order.js"></script>
 </body>
 </html>

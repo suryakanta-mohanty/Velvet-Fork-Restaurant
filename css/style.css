@@ -76,6 +76,35 @@ header nav a{
   color: white;
 }
 
+.scroll-down{
+  position: absolute;
+  bottom: 30px ;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  animation: bounce 1s infinite;
+}
+
+.scroll-down p{
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #fff;
+  font-family: var(--primary-ft);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(.8,0,1,1);
+  }
+  50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,.2,1);
+  }
+}
+
 .brand-name{
   font-size: 3.8rem;
   font-family: "Montserrat", serif;
