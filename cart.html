@@ -10,9 +10,22 @@
       font-family: Arial, sans-serif;
       padding: 20px;
     }
+
+    .container{
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+    }
     .cart-container {
       max-width: 600px;
-      margin: auto;
+      /* margin: auto; */
+      background-color: aqua;
+    }
+
+    .cart-items{
+      height: 80vh;
+      overflow-y: scroll;
     }
     .cart-item {
       display: flex;
@@ -38,11 +51,17 @@
   </style>
 </head>
 <body>
-  <div class="cart-container">
-    <h1>Your Cart</h1>
-    <div id="cart-items"></div>
-    <div class="total" id="total-price"></div>
-    <button onclick="clearCart()">Clear Cart</button>
+  <div class="container">
+    <div class="cart-container">
+      <h1>Your Cart</h1>
+      <div id="cart-items"></div>
+      <div class="total" id="total-price"></div>
+      <button onclick="clearCart()">Clear Cart</button>
+    </div>
+
+    <div class="place-order">
+
+    </div>
   </div>
 
   <script >
