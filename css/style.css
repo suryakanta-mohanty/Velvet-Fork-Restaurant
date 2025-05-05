@@ -42,6 +42,8 @@ header{
 header nav{
   display: flex;
   justify-content: space-between;
+  padding-top : 40px;
+  letter-spacing: 1px;
 }
 
 header nav a{
