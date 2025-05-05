@@ -4,11 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Online</title>
+  <link rel="stylesheet" href="./css/headerCss.css">
   <link rel="stylesheet" href="../css/order.css">
+  <link rel="stylesheet" href="./css/footer.css">
   <!-- <link rel="stylesheet" href="../css/style.css"> -->
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="leftNav">
+        <select name="location" id="location">
+          <option value="location">location</option>
+          <hr>
+          <option value="cuttack" selected>Cuttack</option>
+          <option value="delhi">Delhi</option>
+          <option value="mumbai">Mumbai</option>
+        </select>
+        
+      </div>
+      <div class="rightNav">
+        <a href="/index.html">Home</a>
+        <a href="">Contacts</a>
+        <a href="">Login</a>
+        <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i>  </a>
+      </div>
+        
+    </nav>
   
+    <div class="banner">
+      <img src="./image/orderfood.jpg" alt="food image">
+      <div class="banner-text">
+        <p class="brand-name">Velvet Fork</p>
+        <p class="brand-dis">Elegance meets flavor, Every bite is a taste of royalty.</p>
+      </div>
+      
+      <div class="scroll-down">
+        <p>Sroll Down  &darr;</p>
+      </div>
+    </div>
+  
+  </header>
+
   <div class="container">
 
     <section class="cart-bar" onclick="location.href='./cart.html'">
@@ -344,7 +380,36 @@
     
   </div>
 
-  
+  <footer>
+    <div class="branding">
+      <div class="brand-name">
+        <a href="./index.html">Velvet Fork</a>
+        <ul>
+          <li>Elegance meets flavor, Every bite is a taste of royalty.</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>Elegance meets flavor, Every bite is a taste of royalty.</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>Elegance meets flavor, Every bite is a taste of royalty.</li>
+        </ul>
+      </div>
+    
+    </div>
+    <div class="last-line">
+      <div>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privecy Policy</a>
+      </div>
+      <div>
+        <div class="country">
+          <img src="./image/flag.png" width="20px" loading="lazy" alt="">
+          <span>India</span>
+        </div>
+        <p>&copy; velvetfork, inc.</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://kit.fontawesome.com/c188e66d94.js" crossorigin="anonymous"></script>
   <script src="../script/order.js"></script>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Reservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Table Reservation</h2>
+        <form id="bookingForm" action="generate_otp_outdoor.php" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="from_time">Time From:</label>
+            <input type="time" id="from_time" name="from_time" required>
+
+            <label for="to_time">Time To:</label>
+            <input type="time" id="to_time" name="to_time" required>
+
+            <label for="table_id">table:</label>
+            <input type="text" id="table_id" name="table_id" required>
+
+            <label for="special_request">Special Request (Optional):</label>
+            <textarea id="special_request" name="special_request" rows="3"></textarea>
+
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById("date").value = params.get("date") || "";
+            document.getElementById("from_time").value = params.get("fromTime") || "";
+            document.getElementById("to_time").value = params.get("toTime") || "";
+            document.getElementById("table_id").value = params.get("table_id") || "";
+
+        });
+    </script>
+    
+
+    
+ <!--phone number validation-->
+ <script>
+    document.getElementById("phone").addEventListener("input", function () {
+    let phoneInput = this.value.replace(/\D/g, ""); // Remove non-numeric characters
+    if (phoneInput.length > 10) {
+        phoneInput = phoneInput.slice(0, 10); // Limit to 10 digits
+    }
+    this.value = phoneInput;
+    });
+
+    document.querySelector("form").addEventListener("submit", function (event) {
+    let phoneInput = document.getElementById("phone").value;
+     if (phoneInput.length !== 10) {
+        alert("Phone number must be exactly 10 digits.");
+        event.preventDefault(); // Prevent form submission
+     }
+     });
+    </script> 
+    <script>
+     const phoneInputField = document.querySelector("#phone");
+     const phoneInput = window.intlTelInput(phoneInputField, {
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    </script>
+
+<!--EMAIL VALIDATION-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".submit-btn").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Generate a random 6-digit OTP
+           // let otp = Math.floor(100000 + Math.random() * 900000);
+
+            // Get the email entered in the booking form
+            let email = document.getElementById("email").value;
+
+            if (email.trim() === "") {
+                alert("Please enter a valid email before booking.");
+                return;
+            }
+
+            // Store OTP & email in session storage
+            sessionStorage.setItem("otp", otp);
+            sessionStorage.setItem("email", email);
+
+           // console.log("Generated OTP:", otp); // Debugging (remove this in production)
+
+            // Redirect to confirmation page
+           // window.location.href = "confirmation.html";
+        });
+    });
+    </script>
+</body>
+</html>

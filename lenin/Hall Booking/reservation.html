@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Page</title>
+    <link rel="stylesheet" href="reservation.css">
+    
+</head>
+<body>
+    <div class="party-halls">
+        <h2>Party Halls</h2>
+        <div class="galleria" id="galleria1" onmouseover="showImage('galleria1')">Galleria 1 </div>
+        <div class="galleria" id="galleria2" onmouseover="showImage('galleria2')">Galleria 2 </div>
+        <div class="galleria" id="galleria3" onmouseover="showImage('galleria3')">Galleria 3 </div>
+        <div class="galleria" id="galleria4" onmouseover="showImage('galleria4')">Galleria 4 </div>
+        
+    </div>
+    
+    <div class="seating">
+        <div class="indoor">
+            <h3>Indoor Tables</h3>
+            <div class="table">4 Seater</div>
+            <div class="table">6 Seater</div>
+        </div>
+        <div class="outdoor">
+            <h3>Balcony</h3>
+            <div class="table">4 Seater</div>
+            <div class="table">6 Seater</div>
+        </div>
+    </div>
+    
+    <div class="extras">
+        <div class="two-seater">2 Seater</div>
+        <div class="book-now">Book Now</div>
+    </div>
+    
+    <script>
+        function changeBackground(galleria) {
+            let container = document.getElementById('partyHallsContainer');
+            let images = {
+                'galleria1': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzheyM1Gtv7OUsRkxEs71-QR2ShekNiHgu0Q&s',
+                'galleria2': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpBjUhW6EPo_92YqsMvsYVDST3WFHXiXpLkg&s',
+                'galleria3': 'https://example.com/galleria3.jpg',
+                'galleria4': 'https://example.com/galleria4.jpg'
+            };
+            container.style.background = `url('${images[galleria]}') no-repeat center/cover`;
+        }
+    </script>
+
+<script>
+    document.querySelector(".book-now").addEventListener("click", function () {
+      window.location.href = "bookingpage.html";
+    });
+  </script>
+  
+</body>
+</html>

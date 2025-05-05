@@ -15,7 +15,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #4B2840;
+            background-color: #D9A5B3;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,11 +23,11 @@
             margin: 0;
         }
         .booking-container {
-            background: rgb(255, 255, 255);
+            /* background: rgba(255, 255, 255, 0.234); */
             padding: 30px;
             border-radius: 10px;
             border-color: black;
-            border-width: 3px;
+            border-width: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 80%;
             
@@ -39,6 +39,7 @@
             text-align: center;
             width: 100%;
             color: #8B4513;
+            
         }
         .form-group {
             display: flex;
@@ -49,13 +50,15 @@
         label {
             font-weight: 600;
             margin-bottom: 5px;
+          
         }
         input, select, textarea {
             padding: 10px;
             border-radius: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #cccccc;
             font-size: 14px;
             transition: all 0.3s ease-in-out;
+            background-color: #cccccc37;
         }
         input:focus, select:focus, textarea:focus {
             border-color: #8B4513;
@@ -164,104 +167,112 @@
   }
 }
 
+
     </style>
 </head>
 <body>
-    <div class="booking-container">
-        <h2>Booking</h2>
+  <form class="booking-container" action="generate_otp.php" method="POST" id="booking-form">
+<!--form syntax updated here,redirecting from process booking to generate otp-->
+        <h2>Hall Booking</h2>
         <div class="form-group">
             <label for="name">Name *</label>
-            <input type="text" id="name" required>
+            <input type="text" name="name" id="name" placeholder="Your Name" required>
         </div>
         <div class="form-group">
             <label for="phone">Phone *</label>
-            <input type="tel" id="phone" required>
+            <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
         </div>
         <div class="form-group">
             <label for="email">Email *</label>
-            <input type="email" id="email" required>
+            <input type="email" name="email" id="email" placeholder="Your Email" required>
         </div>
         <div class="form-group">
-            <label for="identity">Identity Type *</label>
-            <select id="identity" required>
+            <label for="identity">Identity Type For Conformation *</label>
+            <select id="identity" name="identity_type" required>
                 <option value="">Select</option>
-                <option>Aadhar</option>
-                <option>PAN</option>
-                <option>Driving License</option>
-                <option>Passport</option>
+                <option value="Aadhar">Aadhar</option>
+                <option value="PAN">PAN</option>
+                <option value="Driving License">Driving License</option>
+                <option value="Passport">Passport</option>
             </select>
         </div>
         <div class="form-group">
             <label for="location">Location *</label>
-            <select id="location" required>
+            <select type="text" name="location" id="location" required>
                 <option value="">Select</option>
-                <option>Mumbai</option>
-                <option>Delhi</option>
-                <option>Kolkata</option>
-                <option>Cuttack</option>
-                <option>Bhubaneswar</option>
-                <option>Bangalore</option>
-                <option>Chennai</option>
-                <option>Ayodhya</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Cuttack">Cuttack</option>
+                <option value="Bhubaneswa">Bhubaneswar</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Ayodhya">Ayodhya</option>
             </select>
         </div>
         <div class="form-group">
             <label for="date">Date *</label>
-            <input type="date" id="date" required>
+            <input type="date" id="date" name="booking_date" required>
         </div>
         <div class="form-group">
             <label for="from-time">From Time *</label>
-            <input type="time" id="from-time" required>
+            <input type="time" id="from-time" name="from_time" required>
         </div>
         <div class="form-group">
             <label for="to-time">To Time *</label>
-            <input type="time" id="to-time" required>
+            <input type="time" id="to-time" name="to_time" required>
         </div>
         <div class="form-group">
             <label for="occasion">Occasion *</label>
-            <select id="occasion" required>
+            <select id="occasion"  name="occasion" required>
                 <option value="">Select</option>
-                <option>Birthday</option>
-                <option>Corporate Meeting</option>
-                <option>Cultural Program</option>
-                <option>Marriage</option>
-                <option>Reception</option>
-                <option>Business Event</option>
-                <option>Seminar</option>
-                <option>Exhibition</option>
-                <option>Other</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Corporate Meeting">Corporate Meeting</option>
+                <option value="Cultural Program">Cultural Program</option>
+                <option value="Marriage">Marriage</option>
+                <option value="Reception">Reception</option>
+                <option value="Business Event">Business Event</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Exhibition">Exhibition</option>
+                <option value="Other">Other</option>
             </select>
         </div>
         <div class="form-group">
             <label for="hall">Hall Name *</label>
-            <select id="hall" required>
+            <select id="hall" name="hall_name"required>
                 <option value="">Select</option>
-                <option>Galleria 1</option>
-                <option>Galleria 2</option>
-                <option>Galleria 3</option>
-                <option>Galleria 4</option>
+                <option value="Galleria 1">Galleria 1</option>
+                <option value="Galleria 2">Galleria 2</option>
+                <option value="Galleria 3">Galleria 3</option>
+                <option value="Galleria 4">Galleria 4</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="guests">Number of People *</label>
-            <input type="number" id="guests" min="1" required>
+            <label for="guests">Number of People <br>(mention if you need to arrange fooding)</label>
+            <input type="number" id="guests"  min="1" name="number_of_people" >
         </div>
         <div class="form-group">
             <label>Need a Photo & Video Shooting Group? *</label>
-            <select id="photo-video" onchange="toggleDescription()">
+            <select id="photo-video" name="photo_video_requirement"  onchange="toggleDescription()">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>
             </select>
         </div>
         <div class="form-group full-width" id="description-group" style="display: none;">
             <label for="description">Description</label>
-            <textarea id="description" maxlength="300" placeholder="Describe your requirements (max 300 words)"></textarea>
+            <textarea id="description" name="description" maxlength="300" placeholder="Describe your requirements (max 300 words)"></textarea>
         </div>
         <div class="form-group full-width">
             <label for="special-request">Any Special Request</label>
-            <textarea id="special-request" maxlength="300" placeholder="Any additional request (optional)"></textarea>
+            <textarea id="special-request" name="special_request" maxlength="300" placeholder="Any additional request (optional)"></textarea>
         </div>
  <!-- BOOK NOW BUTTON-From Uiverse.io by adeladel522 --> 
+  <p>* entered time gap should be minimum 6 hours</p>
+  <!-- Check Availability Button -->
+<button type="button" id="checkBtn" onclick="checkAvailability()">Check Availability</button>
+<div id="availabilityResult" style="margin-top:10px; font-weight: bold;"></div>
+
+  
   <button class="button">
     Book Now
     <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
@@ -272,6 +283,7 @@
       ></path>
     </svg>
   </button>
+</form>
       <!--removed a div here@-->
 
     <script>
@@ -316,7 +328,7 @@
             event.preventDefault(); // Prevent default form submission
 
             // Generate a random 6-digit OTP
-            let otp = Math.floor(100000 + Math.random() * 900000);
+           // let otp = Math.floor(100000 + Math.random() * 900000);
 
             // Get the email entered in the booking form
             let email = document.getElementById("email").value;
@@ -330,37 +342,85 @@
             sessionStorage.setItem("otp", otp);
             sessionStorage.setItem("email", email);
 
-            console.log("Generated OTP:", otp); // Debugging (remove this in production)
+           // console.log("Generated OTP:", otp); // Debugging (remove this in production)
 
             // Redirect to confirmation page
-            window.location.href = "confirmation.html";
+           // window.location.href = "confirmation.html";
         });
     });
     </script>
- <!-- REDIRECT TO Mmailvarrification page-->
- <script>
-    document.querySelector(".button").addEventListener("click", function () {
-      // Select all required input fields
-      let requiredFields = document.querySelectorAll("input[required], select[required]");
-      let allFilled = true;
-  
-      // Loop through fields to check if any are empty
-      requiredFields.forEach(function (field) {
-        if (!field.value.trim()) {
-          allFilled = false;
-        }
-      });
-  
-      // If all fields are filled, redirect; otherwise, show an alert
-      if (allFilled) {
-        window.location.href = "mailvarrification.html";
-      } else {
-        alert("All mandatory fields should be filled!");
-      }
+  <script>
+    // Set min date to today for booking date
+    document.addEventListener("DOMContentLoaded", function () {
+        const dateInput = document.getElementById("date");
+        const today = new Date().toISOString().split("T")[0];
+        dateInput.setAttribute("min", today);
     });
-  </script>
+</script>
+<!-- set time gap should be 6 hr -->
+<script>
+  document.getElementById("booking-form").addEventListener("submit", function (event) {
+      const fromTime = document.getElementById("from-time").value;
+      const toTime = document.getElementById("to-time").value;
   
-			
+      if (fromTime && toTime) {
+          const from = new Date(`1970-01-01T${fromTime}:00`);
+          const to = new Date(`1970-01-01T${toTime}:00`);
+          const timeDiff = (to - from) / (1000 * 60 * 60); // Convert milliseconds to hours
+  
+          if (timeDiff < 6) {
+              alert("To Time must be at least 6 hours after From Time.");
+              event.preventDefault();
+          }
+      }
+  });
+  </script>
+  <!-- Add JavaScript to Check Availability on Date/Time Change -->
+  
+    
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const dateInput = document.getElementById('date');
+      const fromTimeInput = document.getElementById('from-time');
+      const toTimeInput = document.getElementById('to-time');
+      const hallSelect = document.getElementById('hall');
+  
+      async function checkAvailability() {
+          const date = dateInput.value;
+          const fromTime = fromTimeInput.value;
+          const toTime = toTimeInput.value;
+          const hall = hallSelect.value;
+  
+          if (date && fromTime && toTime && hall) {
+              const formData = new FormData();
+              formData.append('booking_date', date);
+              formData.append('from_time', fromTime);
+              formData.append('to_time', toTime);
+              formData.append('hall_name', hall);
+  
+              const response = await fetch('check_hall_availability.php', {
+                  method: 'POST',
+                  body: formData
+              });
+  
+              const result = await response.json();
+  
+              if (result.status === 'unavailable') {
+                  alert('Selected hall is already booked for the chosen time. Please try a different slot or hall.');
+                  hallSelect.value = ""; // reset selection
+              }
+          }
+      }
+  
+      dateInput.addEventListener('change', checkAvailability);
+      fromTimeInput.addEventListener('change', checkAvailability);
+      toTimeInput.addEventListener('change', checkAvailability);
+      hallSelect.addEventListener('change', checkAvailability);
+  });
+  </script>	
 
 
 </body>

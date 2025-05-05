@@ -1,3 +1,12 @@
+<?php
+session_start();  // <-- Must be FIRST LINE before any HTML or output
+if (isset($_SESSION['otp'])) {
+    $stored_otp = $_SESSION['otp'];
+} else {
+    echo "Session OTP not set. Something went wrong.";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,13 +75,13 @@
     </style>
 </head>
 <body>
-    <div class="verification-container">
+    <form method="POST" action="mailvarrification_outdoor.php" class="verification-container">
         <h2>Email Verification</h2>
-        <p>Verification code has been sent to: <strong id="user-email">user@example.com</strong></p>
+        <p>Verification code has been sent to: <strong id="user-email"><?php echo htmlspecialchars($_SESSION['user_email']); ?></strong></p>
         <p>Enter the code below within <span class="timer" id="countdown">10:00</span></p>
         
         <div class="form-group">
-            <input type="text" id="otp" placeholder="Enter OTP" maxlength="6">
+            <input type="text" id="otp" name="otp" placeholder="Enter OTP" maxlength="6">
         </div>
         
         <div class="captcha-box">
@@ -81,8 +90,8 @@
         
         <p class="error" id="error-message">Verification Failed! Please try again.</p>
         
-        <button class="submit-btn" id="verify-btn" onclick="submitVerification()">Submit</button>
-    </div>
+        <button class="submit-btn" value="Submit" id="verify-btn" onclick="submitVerification()">Submit</button>
+    </form>
 
     <script>
         let timer = 600;
@@ -116,17 +125,35 @@
 
         otpInput.addEventListener('input', checkVerification);
         captchaCheckbox.addEventListener('change', checkVerification);
-
-        function submitVerification() {
-            let correctOtp = "123456"; // Simulated correct OTP
-            if (otpInput.value === correctOtp && captchaCheckbox.checked) {
-                alert("Verification Successful!");
-            } else {
-                errorMessage.style.display = 'block';
-            }
-        }
     </script>
+
+    <?php
+    $entered_otp = isset($_POST['otp']) ? $_POST['otp'] : '';
+    $session_otp = isset($_SESSION['otp']) ? $_SESSION['otp'] : '';
+
     
-      
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($entered_otp == $session_otp) {
+            
+            // Proceed to store booking details into DB here
+            echo "<script>window.location.href='process_outdoor_booking.php';</script>";
+            exit;
+            
+        } else {
+            echo "
+                  <script>
+                     alert('❌ OTP verification failed! Please try again.');
+                     window.location.href = window.location.href;
+                  </script>";
+
+        }
+    }
+    ?>
+    
+    <?php
+    error_reporting(E_ERROR | E_PARSE); // Only show critical errors
+    
+
+    ?>
 </body>
 </html>

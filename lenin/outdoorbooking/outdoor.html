@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>outdoor Seating</title>
+    <link rel="stylesheet" href="outdoor.css">
+</head>
+<body>
+    <form action="check_availability_outdoor.php" method="post">
+        <div class="selection-bar">
+            <label for="bookingDate">Select Date:</label>
+            <input type="date" id="bookingDate" name="bookingDate" required>
+
+            <label for="fromTime">From Time:</label>
+            <input type="time" id="fromTime" name="fromTime" required>
+
+            <label for="toTime">To Time:</label>
+            <input type="time" id="toTime" name="toTime" required>
+
+            <button type="button" onclick="checkAvailability()">Check Availability</button>
+        </div>
+    </form>
+
+    <!-- <div class="six-seating">
+        <h2>Six-Seater Tables</h2>
+        <div class="table-container" id="six-seater"></div>
+    </div> -->
+
+    <div class="four-seating">
+        <h2>Four-Seater Tables</h2>
+        <div class="table-container" id="four-seater"></div>
+    </div>
+
+    <div class="two-seating">
+        <h2>Two-Seater Tables</h2>
+        <div class="table-container" id="two-seater"></div>
+    </div>
+    <script src="table_selection_outdoor.js"></script>
+
+    
+</body>
+</html>
