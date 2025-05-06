@@ -63,7 +63,7 @@ input {
 }
 
 button {
-  background-color: #ff5722;
+  background-color: #E50046;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -75,7 +75,7 @@ button {
 }
 
 button:hover {
-  background-color: #e64a19;
+  background-color: #f72967;
 }
 
 .order-confirmation {
@@ -115,11 +115,8 @@ button:hover {
 
   <script>
     // Dummy cart data — in real case, this would come from localStorage or backend
-const cart = [
-  { name: "Paneer Butter Masala", price: 250, quantity: 1 },
-  { name: "Veg Biryani", price: 180, quantity: 2 },
-  { name: "Sweet Lassi", price: 60, quantity: 1 }
-];
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+console.log(cart);
 
 const cartList = document.getElementById("cart-list");
 const totalPriceEl = document.getElementById("total-price");
@@ -132,7 +129,7 @@ function renderCart() {
   cart.forEach(item => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <span>${item.name} x${item.quantity}</span>
+      <span>${item.name} x ${item.quantity}</span>
       <span>₹${item.price * item.quantity}</span>
     `;
     cartList.appendChild(li);
@@ -153,6 +150,7 @@ document.getElementById("checkout-form").addEventListener("submit", function (e)
     confirmation.textContent = `Thank you, ${name}! Your order has been placed.`;
     confirmation.style.display = "block";
     this.reset();
+    
   } else {
     alert("Please fill all fields.");
   }
